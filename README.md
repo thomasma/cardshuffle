@@ -6,7 +6,8 @@ Project is organized as a standard Maven project with very few external dependen
 
 To generate PMD, JUnit and Cobertura code coverage reports run 
 
-    mvn site
+    mvn site OR
+    mvn clean compile site
 
 Open index.html at
 
@@ -14,8 +15,12 @@ Open index.html at
 
 One PMD warning has been purposely left in the code to ensure that the PMD report is generated.
 
+JUnit (using JAssert) test case located at
 
-## UML Sequence Diagram
+    src/test/java/com/gamesoft/cards/GameTest.java
+
+
+# UML Sequence Diagram
 
 UML diagrams are rendered using [Mermaid](https://mermaidjs.github.io/). 
 
