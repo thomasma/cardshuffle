@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.stream.IntStream;
 
 import org.assertj.core.util.Arrays;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
