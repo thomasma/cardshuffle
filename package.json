@@ -1,3 +1,15 @@
-"scripts": {
-  "test": "jest"
+{
+  "name": "cardshuffle",
+  "version": "0.0.1",
+  "description": "A Java card shuffling library",
+  "scripts": {
+    "test": "mvn test",
+    "build": "mvn clean compile",
+    "site": "mvn clean compile site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasma/cardshuffle.git"
+  },
+  "license": "MIT"
 }
