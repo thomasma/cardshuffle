@@ -1,4 +1,4 @@
-name: Run Node.js Unit Tests
+name: Java CI with Maven
 
 on:
   push:
@@ -12,19 +12,34 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        java-version: [21]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          java-version: ${{ matrix.java-version }}
+          distribution: 'temurin'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
 
       - name: Run tests
-        run: npm test
+        run: mvn clean test
+
+      - name: Generate test report
+        run: mvn surefire-report:report-only
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: target/surefire-reports/
