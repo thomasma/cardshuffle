@@ -1,8 +1,8 @@
 package com.gamesoft.cards;
 
 /**
- * Represents common functions on a deck of cards. Default implementation is
- * unsupported operations. It is left to the implementation to fill in details.
+ * Represents common functions on a deck of cards. Default implementation is unsupported 
+ * operations. It is left to the implementation to fill in details.
  */
 public interface Deck {
 	/**
